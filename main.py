@@ -14,6 +14,7 @@ def hello_world():
 
 @app.route("/<int:number>")
 def output(number):
+    global target_number
     if number > target_number:
         return ('<h1 style="text-align: center">Too High!</h1>'
             '<img style="display: block; margin-left: auto;margin-right: auto;width: 40%;"'
@@ -24,7 +25,6 @@ def output(number):
                 '<iframe allow="fullscreen" frameBorder="0" height="853" '
                 'src="https://giphy.com/embed/wHg7wvRUSzSVYYTftC/video" width="480"></iframe></div>')
     else:
-        global target_number
         target_number = random.randint(0, 9)
         return ('<h1 style="text-align: center">Guess a number between 0 and 9</h1>'
             '<img style="display: block; margin-left: auto;margin-right: auto;width: 40%;"'
